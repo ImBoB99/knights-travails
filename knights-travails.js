@@ -41,7 +41,6 @@ function knightMoves(startingVertex, finalVertex) {
       if ((x >= 0 && x < rowBounds) && (y >= 0 && y < columnBounds)) {
         const position = `${x},${y}`
         if (!visited.has(position)) {
-          console.log(`Found a valid move: ${[position, distance + 1]}`)
 
           const newPath = [...pathArray, position];
           queue.push([position, distance + 1, newPath]);
@@ -54,4 +53,4 @@ function knightMoves(startingVertex, finalVertex) {
   return -1;
 }
 
-knightMoves([0,0],[7,7])
+knightMoves([3,3],[4,3])
