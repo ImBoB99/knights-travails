@@ -13,18 +13,15 @@ function knightMoves(startingVertex, finalVertex) {
   queue.push([knightPosition, 0, [knightPosition]]);
   visited.add(knightPosition);
 
-  console.log(queue[0]);
-
   while (queue.length > 0) {
     const [current, distance, pathArray] = queue.shift();
-    console.log("Current:", current, "Distance:", distance, "PathArray:", pathArray);
 
     if (current === finalPosition) {
-      console.log("Final path:", pathArray);
-      return distance;
+      console.log(`You made it in ${distance} moves! Here's your path:`)
+      console.log(pathArray.map(pos => `[${pos}]`).join(' -> '));
+      return;
     }
     const [currentX, currentY] = current.split(",").map(Number);
-    console.log("Current Coordinates:", currentX, currentY);
 
     const knightMoves = [
       [currentX + 1, currentY + 2],
@@ -52,8 +49,6 @@ function knightMoves(startingVertex, finalVertex) {
         }
       }
     })
-
-    console.table("Queue after this step:", queue);
   }
 
   return -1;
